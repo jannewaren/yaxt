@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is made purely by request, as a proof-of-skill.
 
-Things you may want to cover:
+Requirements for the application:
 
-* Ruby version
+* Allows user to upload an XML file and specify name and description of that file (text input, text area).
+* Stores the actual file on disk and the information about the file in the database (name, description, upload IP, file name and size).
+* Shows a list of uploaded files and allows removal of an entry in that list.
+* For each entry in the list (representing one XML file), allow the possibility to check if a certain node exists in the XML, via Ajax (node name supplied by user of the app in a text box, you need only to check if it exists or not and respond with 'node exists / does not exist in the xml')
 
-* System dependencies
+## Ruby version
 
-* Configuration
+Tested using Ruby 2.2.1 and Rails 4.2.0
 
-* Database creation
+## How to run the test suite
 
-* Database initialization
+Run the command "bundle exec rspec"
 
-* How to run the test suite
+## How to run the application (in develpoment)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. git clone https://github.com/jannewaren/yaxt
+2. bundle
+3. bundle exec thin start
