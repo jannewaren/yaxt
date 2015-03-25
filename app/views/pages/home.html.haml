@@ -1,5 +1,20 @@
 - title("YAXT - yet another XML tool")
-%h1
-  %i.fa.fa-home
-  Home Page
-  %small views/pages/home.html.erb
+.row
+  %h1
+    %i.fa.fa-home
+    Home Page
+
+  %br
+  .row
+    .col-sm-6
+      .jumbotron
+        %h2
+          = link_to "Upload a new file", new_entry_url
+    .col-sm-6
+      .jumbotron
+        %h2 Latest uploads
+        - @entries.each do |e|
+          = link_to e.name, e
+          %br
+        %br
+          = link_to 'View all entries', entries_url

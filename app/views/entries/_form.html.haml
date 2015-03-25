@@ -1,0 +1,25 @@
+= form_for @entry, multipart: true, :html => {:class => 'form-horizontal'} do |f|
+  - if @entry.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@entry.errors.count, "error")} prohibited this entry from being saved:"
+      %ul
+        - @entry.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group.form-group-lg
+    .col-sm-2
+      = f.label 'Select file to upload'
+    .col-sm-10
+      = f.file_field :xml
+  .form-group.form-group-lg
+    .col-sm-2
+      = f.label :name
+    .col-sm-10
+      = f.text_field :name
+  .form-group.form-group-lg
+    .col-sm-2
+      = f.label :description
+    .col-sm-10
+      = f.text_area :description
+  .form-group.form-group-lg
+    = f.submit 'Upload'

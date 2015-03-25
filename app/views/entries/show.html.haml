@@ -1,0 +1,28 @@
+%h1 Show entry
+
+.row
+  .col-sm-4
+    %p
+      %b Name:
+      = @entry.name
+    %p
+      %b Description:
+      = @entry.description
+    %p
+      %b Original filename:
+      = @entry.filename_user
+    %p
+      %b Filesize:
+      = number_to_human_size(@entry.filesize)
+    %p
+      %b Uploaded from IP address:
+      = @entry.upload_ip
+
+  .col-sm-8
+    %p
+      %b XML Data:
+      %br
+      TODO: The data will be here.
+
+.row
+  = link_to 'Back', entries_path

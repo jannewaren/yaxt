@@ -1,0 +1,19 @@
+%h1 Listing entries
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Filesize
+      %th Actions
+
+  %tbody
+    - @entries.each do |entry|
+      %tr
+        %td= link_to entry.name, entry
+        %td= link_to entry.description, entry
+        %td= number_to_human_size(entry.filesize)
+        %td= link_to 'Remove', entry, :method => :delete
+
+= link_to 'Upload a new file', new_entry_path
