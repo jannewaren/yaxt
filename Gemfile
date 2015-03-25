@@ -10,35 +10,31 @@ gem 'jquery-rails', '4.0.3'
 gem 'turbolinks', '2.5.3'
 gem 'jbuilder', '2.2.11'
 gem 'bcrypt', '3.1.10'
+gem 'sqlite3', '1.3.10'
 
-# Necessary for Windows OS (won't install on *nix systems)
-gem 'tzinfo-data', platforms: [:mingw, :mswin]
-
-# Kaminari: https://github.com/amatsuda/kaminari
+# From Railsbricks
 gem 'kaminari', '0.16.3'
-
-# Friendly_id: https://github.com/norman/friendly_id
-gem 'friendly_id', '5.1.0'
-
-# Font-awesome: https://github.com/FortAwesome/font-awesome-sass
 gem 'font-awesome-sass', '4.3.1'
-
-# Bootstrap 3: https://github.com/twbs/bootstrap-sass
 gem 'bootstrap-sass', '3.3.3'
 
+# Dev helpers from Railsbricks
 group :development, :test do
   gem 'byebug', '3.5.1'
   gem 'web-console', '2.1.1'
-
-  # Figaro: https://github.com/laserlemon/figaro
   gem 'figaro', '1.1.0'
-
-  # Spring: https://github.com/rails/spring
   gem 'spring', '1.3.3'
+
+  # use thin in development
+  gem 'thin'
 end
 
+# Use HAML
+gem 'erb2haml', group: 'development'
+gem 'haml'
+gem 'haml-rails'
 
-# SQLite 3
-group :development, :test do
-  gem 'sqlite3', '1.3.10'
-end
+# Use Nokogiri for XML handling
+gem 'nokogiri'
+
+# Make logfiles less annoying
+gem 'quiet_assets'
