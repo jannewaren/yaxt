@@ -26,6 +26,9 @@ group :development, :test do
 
   # use thin in development
   gem 'thin'
+
+  # use rspec for basic tests
+  gem 'rspec-rails', '~> 3.0'
 end
 
 # Use HAML
