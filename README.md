@@ -34,7 +34,7 @@ Tested using Ruby 2.2.1 and Rails 4.2.0
 
 ## How to run the application (in development)
 
-Have Ruby 2.2.1 and git installed.
+Have Ruby 2.2.1 and git installed. Run "gem install rails" if you don't have it for 2.2.1 yet.
 
 1. git clone https://github.com/jannewaren/yaxt
 2. bundle
