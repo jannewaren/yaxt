@@ -22,20 +22,20 @@ Notes / extra features / pros:
 
 Cons:
 
-* Did not use TDD
+* Did not use TDD. There are no tests at all!
 * No real exception handling
+* Encoding support is "just a hack"
 
 
 ## Ruby version
 
 Tested using Ruby 2.2.1 and Rails 4.2.0
 
-## How to run the test suite
 
-Run the command "bundle exec rspec"
-
-## How to run the application (in develpoment)
+## How to run the application (in development)
 
 1. git clone https://github.com/jannewaren/yaxt
 2. bundle
-3. bundle exec thin start
+3. bin/rake db:migrate RAILS_ENV=development
+4. bundle exec thin start
+5. Go ho http://localhost:3000/
