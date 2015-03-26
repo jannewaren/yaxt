@@ -17,7 +17,6 @@ Notes / extra features / pros:
 * Search for a tag in two places:
   * Listing entries
   * Show entry
-* Performance: go trough the file nodes once, and then search "in live mode"
 * Ignores case-sensitivity in either direction when search for a node
 
 Cons:
