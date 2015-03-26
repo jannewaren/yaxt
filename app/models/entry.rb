@@ -19,11 +19,11 @@ class Entry < ActiveRecord::Base
   # Retrieve the xml file on disk for this entry
   def fetch_data
     data = ''
-    File.open(Rails.root.join('public', 'uploaded_files', self.filename_system), 'rb') do |file|
+    File.open(Rails.root.join('public', 'uploaded_files', self.filename_system), 'r') do |file|
       data = file.read
       file.close
     end
-    return data.to_s
+    return data.encode!('UTF-8', 'UTF-8', :invalid => :replace).to_s
   end
 
   ##
@@ -36,7 +36,7 @@ class Entry < ActiveRecord::Base
   # Return true if there is a match, otherwise return false.
   def element_exists?(nodename)
     nodes = []
-    xmldata = Nokogiri::XML(self.fetch_data) { |c| c.noblanks }
+    xmldata = Nokogiri::XML(self.fetch_data, 'UTF-8') { |c| c.noblanks }
     xmldata.xpath('//*').each do |node|
       nodes << node.name.to_s
     end
