@@ -11,6 +11,7 @@ gem 'turbolinks', '2.5.3'
 gem 'jbuilder', '2.2.11'
 gem 'bcrypt', '3.1.10'
 gem 'sqlite3', '1.3.10'
+gem 'therubyracer' #needed on linux for javascript
 
 # From Railsbricks
 gem 'kaminari', '0.16.3'
