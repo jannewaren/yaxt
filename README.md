@@ -29,7 +29,7 @@ Cons:
 
 ## Ruby version
 
-Tested using Ruby 2.2.1 and Rails 4.2.0
+Tested using Ruby 2.2.1 and Rails 4.2.1
 
 
 ## How to run the application (in development)
