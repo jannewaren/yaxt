@@ -6,7 +6,9 @@
       %th Name
       %th Description
       %th Filesize
-      %th Actions
+      %th Remove?
+      %th Check if a node exists?
+      %th Well, does it?
 
   %tbody
     - @entries.each do |entry|
@@ -15,5 +17,15 @@
         %td= link_to entry.description, entry
         %td= number_to_human_size(entry.filesize)
         %td= link_to 'Remove', entry, :method => :delete
+        %td
+          %form{"accept-charset" => "UTF-8",
+          :action => "/entries/#{entry.id}/search",
+          "data-remote" => "true",
+          :method => "post"}
+            = text_field_tag 'node'
+            = submit_tag 'Search'
+        %td
+          %p{:id => "search-result-#{entry.id}"} ...
+
 
 = link_to 'Upload a new file', new_entry_path

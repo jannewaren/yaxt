@@ -7,5 +7,8 @@ Yaxt::Application.routes.draw do
 
   # Additions
   resources :entries
+
+  # Custom route for searching
+  post '/entries/:id/search', to: 'entries#search'
   
 end

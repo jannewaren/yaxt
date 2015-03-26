@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show, :destroy]
+  before_action :set_entry, only: [:show, :destroy, :search]
 
   # GET /entries
   # GET /entries.json
@@ -22,11 +22,7 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(name: entry_params[:name], description: entry_params[:description])
 
-    # TODO: Debug data, remove these
-    logger.debug 'params: ' + params.to_s
-    logger.debug 'entry_params: ' + entry_params.to_s
-
-    # User input does not include all the necessary data, saving it here
+    # User input does not include all the necessary data, populating it here
     @entry.filename_user = params[:entry][:xml].original_filename
     @entry.filename_system = Time.now.to_i.to_s+'_'+SecureRandom.hex.to_s+'.xml'
     upload(params[:entry][:xml], @entry.filename_system)
@@ -52,6 +48,21 @@ class EntriesController < ApplicationController
     end
   end
 
+  # POST /entries/1/search
+  def search
+    @found = ''
+
+    if @entry.element_exists?(params[:node].to_s)
+      @found = 'Found it!'
+    else
+      @found = 'Not found!'
+    end
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
@@ -69,6 +80,7 @@ class EntriesController < ApplicationController
     def upload(uploaded_io, filename)
       File.open(Rails.root.join('public', 'uploaded_files', filename), 'wb') do |file|
         file.write(uploaded_io.read)
+        file.close
       end
     end
 end

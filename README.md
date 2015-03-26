@@ -9,6 +9,26 @@ Requirements for the application:
 * Shows a list of uploaded files and allows removal of an entry in that list.
 * For each entry in the list (representing one XML file), allow the possibility to check if a certain node exists in the XML, via Ajax (node name supplied by user of the app in a text box, you need only to check if it exists or not and respond with 'node exists / does not exist in the xml')
 
+Notes / extra features / pros:
+
+* Store both filenames, the user filename and internal system filename (do not use the user's filename to save the file)
+* Show XML content (it was not strictly required)
+* Search for a tag in two places:
+  * Listing entries
+  * Show entry
+* Performance: go trough the file nodes once, and then search "in live mode"
+* Ignores case-sensitivity in either direction when search for a node
+
+Cons:
+
+* Did not use TDD
+* No real exception handling
+
+## TODO
+
+* Finvoice upload wont work (not UTF8)
+* Searching on "Show entry"
+
 ## Ruby version
 
 Tested using Ruby 2.2.1 and Rails 4.2.0
