@@ -20,6 +20,15 @@
 
   .col-sm-8
     %p
+      Check if a node exists in this data:
+      %form{"accept-charset" => "UTF-8",
+          :action => "/entries/#{@entry.id}/search",
+          "data-remote" => "true",
+          :method => "post"}
+        = text_field_tag 'node'
+        = submit_tag 'Search'
+      %p{:id => "search-result-#{@entry.id}"} ...
+      %br
       %b XML Data:
       %br
       = @entry.fetch_data

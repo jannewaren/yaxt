@@ -24,10 +24,6 @@ Cons:
 * Did not use TDD
 * No real exception handling
 
-## TODO
-
-* Finvoice upload wont work (not UTF8)
-* Searching on "Show entry"
 
 ## Ruby version
 
