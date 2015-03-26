@@ -21,9 +21,12 @@
           %form{"accept-charset" => "UTF-8",
           :action => "/entries/#{entry.id}/search",
           "data-remote" => "true",
-          :method => "post"}
-            = text_field_tag 'node'
-            = submit_tag 'Search'
+          :method => "post",
+          :class => "form-inline"}
+            .form-group
+              = text_field_tag 'node', '', class: 'form-control'
+            .form-group
+              = submit_tag 'Search', class: 'btn btn-default'
         %td
           %p{:id => "search-result-#{entry.id}"} ...
 
